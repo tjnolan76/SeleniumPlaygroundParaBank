@@ -5,5 +5,6 @@
         public const string AdminPage = "/parabank/admin.htm";
         public const string RegisterPage = "/parabank/register.htm";
         public const string BillPayPage = "/parabank/billpay.htm";
+        public const string ContactPage = "/parabank/contact.htm";
     }
 }

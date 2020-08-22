@@ -29,7 +29,7 @@ namespace Playground.SharedResources.Helpers
             {
                 System.IO.Directory.CreateDirectory(@"C:\SeleniumTestingScreenshots");
                 Screenshot ss = ((ITakesScreenshot)_driver).GetScreenshot();
-                ss.SaveAsFile(@"C:\SeleniumTestingScreenshots" + "_" + dt + ".Png", ScreenshotImageFormat.Png);
+                ss.SaveAsFile(@"C:\SeleniumTestingScreenshots\" + "_" + dt + ".Png", ScreenshotImageFormat.Png);
             }
             catch (Exception e)
             {
