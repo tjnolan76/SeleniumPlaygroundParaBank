@@ -102,12 +102,7 @@ namespace PlaygroundTests.SharedResources
 
                 case "Edge":
 
-                    //TODO - Make this work!!!
-
                     new DriverManager().SetUpDriver(new EdgeConfig());
-
-                    //Sets us up for EDGE Chromium, and not EdgeHTML
-                    //EdgeDriverService edgeDriverService = EdgeDriverService.CreateDefaultService();
 
                     //This sets up our browser options
                     var options = new EdgeOptions();
