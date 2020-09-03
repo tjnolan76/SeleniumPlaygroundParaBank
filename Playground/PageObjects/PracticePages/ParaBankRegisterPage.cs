@@ -8,7 +8,7 @@ namespace Playground.PageObjects.PracticePages
     {
         #region Fields
 
-        private readonly string URL = $"{TestEnvironment.BaseUrl}{UrlFragments.RegisterPage}";
+        private readonly string _url = $"{TestEnvironment.BaseUrl}{UrlFragments.RegisterPage}";
         private readonly IWebDriver _driver;
 
         #endregion
@@ -30,26 +30,26 @@ namespace Playground.PageObjects.PracticePages
 
         public void NavigateTo()
         {
-            _driver.Navigate().GoToUrl(URL);
+            _driver.Navigate().GoToUrl(_url);
         }
 
         #endregion
 
         #region User Actions
 
-        public void RegisterUser(string FirstName, string LastName, string UserName, string Password)
+        public void RegisterUser(string firstName, string lastName, string userName, string password)
         {
-            FirstNameField.SendKeys(FirstName);
-            LastNameField.SendKeys(LastName);
+            FirstNameField.SendKeys(firstName);
+            LastNameField.SendKeys(lastName);
             StreetAddressField.SendKeys(UniversalConstants.StreetAddress);
             CityField.SendKeys(UniversalConstants.City);
             StateField.SendKeys(UniversalConstants.State);
             ZipCodeField.SendKeys(UniversalConstants.ZipCode);
             PhoneNumberField.SendKeys(UniversalConstants.Phone);
             SSNField.SendKeys(UniversalConstants.SSN);
-            UserNameField.SendKeys(UserName);
-            PasswordField.SendKeys(Password);
-            ConfirmPasswordField.SendKeys(Password);
+            UserNameField.SendKeys(userName);
+            PasswordField.SendKeys(password);
+            ConfirmPasswordField.SendKeys(password);
 
             ClickRegisterButton();
         }

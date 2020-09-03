@@ -7,7 +7,7 @@ namespace Playground.PageObjects.PracticePages
     {
         #region Fields
 
-        private readonly string URL = $"{TestEnvironment.BaseUrl}{UrlFragments.ContactPage}";
+        private readonly string _url = $"{TestEnvironment.BaseUrl}{UrlFragments.ContactPage}";
         private readonly IWebDriver _driver;
 
         #endregion
@@ -29,7 +29,7 @@ namespace Playground.PageObjects.PracticePages
 
         public void NavigateTo()
         {
-            _driver.Navigate().GoToUrl(URL);
+            _driver.Navigate().GoToUrl(_url);
         }
 
         #endregion
@@ -54,9 +54,6 @@ namespace Playground.PageObjects.PracticePages
         public IWebElement SendButton
             => _driver.FindElement(By.XPath("//*[@id='contactForm']//*[@class='button']"));
 
-
-
-        //name
         #endregion
     }
 }
