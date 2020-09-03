@@ -1,4 +1,5 @@
-﻿using Playground.SharedResources.Helpers;
+﻿using AngleSharp.Text;
+using Playground.SharedResources.Helpers;
 
 namespace Playground.SharedResources.Constants
 {
@@ -7,5 +8,6 @@ namespace Playground.SharedResources.Constants
         public static string BaseUrl => JsonHelper.ReadSetting("FQDN");
         public static string DesignatedDriver => JsonHelper.ReadSetting("Browser");
         public static string IsHeadless => JsonHelper.ReadSetting("IsHeadless");
+        public static string Timeout => JsonHelper.ReadSetting("Timeout");
     }
 }

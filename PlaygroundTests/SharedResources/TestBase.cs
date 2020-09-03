@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AngleSharp.Text;
+using Microsoft.Edge.SeleniumTools;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenQA.Selenium;
@@ -10,7 +12,6 @@ using System;
 using System.Collections.Generic;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
-using Microsoft.Edge.SeleniumTools;
 
 namespace PlaygroundTests.SharedResources
 {
@@ -62,7 +63,7 @@ namespace PlaygroundTests.SharedResources
 
         #region Helpers
 
-        private void InitializeDriver()
+        private static void InitializeDriver()
         {            
             switch (TestEnvironment.DesignatedDriver)
             {
@@ -78,7 +79,7 @@ namespace PlaygroundTests.SharedResources
                     //This initializes our driver with set options.
                     _webDriver = new ChromeDriver(chromeOptions);
                     _webDriver.Manage().Window.Maximize();
-
+                    _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(int.Parse(TestEnvironment.Timeout));
                     break;                                      
 
                 case "Firefox":
@@ -97,6 +98,8 @@ namespace PlaygroundTests.SharedResources
                     //This initializes our driver with set service and options
                     _webDriver = new FirefoxDriver(firefoxService, firefoxOptions);
                     _webDriver.Manage().Window.Maximize();
+                    _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(int.Parse(TestEnvironment.Timeout));
+
 
                     break;
 
@@ -113,7 +116,7 @@ namespace PlaygroundTests.SharedResources
                     //This initializes our driver with set options
                     _webDriver = new EdgeDriver(options);
                     _webDriver.Manage().Window.Maximize();
-
+                    _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(int.Parse(TestEnvironment.Timeout));
                     break;
 
                 default:

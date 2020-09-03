@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using AngleSharp.Common;
+using OpenQA.Selenium;
 using Playground.SharedResources.Constants;
 using System.Threading;
 
@@ -8,7 +9,7 @@ namespace Playground.PageObjects.PracticePages
     {
         #region Fields
 
-        private readonly string URL = $"{TestEnvironment.BaseUrl}{UrlFragments.AdminPage}";
+        private readonly string _url = $"{TestEnvironment.BaseUrl}{UrlFragments.AdminPage}";
         private readonly IWebDriver _driver;
 
         #endregion
@@ -30,31 +31,26 @@ namespace Playground.PageObjects.PracticePages
 
         public void NavigateTo()
         {
-            _driver.Navigate().GoToUrl(URL);
+            _driver.Navigate().GoToUrl(_url);
         }
 
         #endregion
 
         #region User Actions
 
-        //TODO - Remove sleeps.
-
         public void ClickCleanButton()
         {
             CleanButton.Click();
-            Thread.Sleep(2000);
         }
 
         public void ClickRegisterButton()
-        {
+        {            
             RegisterButton.Click();
         }
 
         public void ClickLogoutButton()
         {
             LogoutButton.Click();
-            Thread.Sleep(500);
-            
         }
 
         #endregion

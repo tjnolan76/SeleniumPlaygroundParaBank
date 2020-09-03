@@ -37,8 +37,10 @@ namespace PlaygroundTests.PracticeTests
             _adminPage.NavigateTo();
 
             _adminPage.ClickCleanButton();
+            //Assert.IsTrue(_adminPage.DatabaseCleanMessage.Displayed);
 
             _adminPage.ClickRegisterButton();
+            
 
             _registerPage.RegisterUser(UniversalConstants.FirstName, UniversalConstants.LastName, UniversalConstants.UserName, UniversalConstants.Password);
 

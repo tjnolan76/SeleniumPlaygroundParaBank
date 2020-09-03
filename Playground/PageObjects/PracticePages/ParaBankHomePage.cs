@@ -1,13 +1,13 @@
 ﻿using OpenQA.Selenium;
 using Playground.SharedResources.Constants;
 
-namespace Playground.PageObjects
+namespace Playground.PageObjects.PracticePages
 {
     public class ParaBankHomePage
     {
         #region Fields
 
-        private readonly string URL = $"{TestEnvironment.BaseUrl}";
+        private readonly string _url = $"{TestEnvironment.BaseUrl}";
         private readonly IWebDriver _driver;
 
         #endregion
@@ -29,17 +29,17 @@ namespace Playground.PageObjects
 
         public void NavigateTo()
         {
-            _driver.Navigate().GoToUrl(URL);
+            _driver.Navigate().GoToUrl(_url);
         }
 
         #endregion
 
         #region User Actions
 
-        public void UserLogin(string UserName, string Password)
+        public void UserLogin(string userName, string password)
         {
-            UserNameField.SendKeys(UserName);
-            PasswordField.SendKeys(Password);
+            UserNameField.SendKeys(userName);
+            PasswordField.SendKeys(password);
             LoginButton.Click();
         }
 
